@@ -1,8 +1,9 @@
 # CLAUDE.md — fredricnet-website
 
-Hugo site at `github.com/fredricnet/fredricnet-website`. Research and thought-leadership site on AI, autonomous systems, and digital transformation. Theme: **paitheme** (local module replace during dev).
+Hugo site at `github.com/fredricnet/fredricnet-website`. Research and thought-leadership site on AI, autonomous systems, and digital transformation. Theme: **paitheme** (Hugo module, v1.1.0).
 
 Live: https://www.fredric.net/
+Repo: `git@github.com-fredricnet:fredricnet/fredricnet-website.git`
 
 ## Dev Workflow
 
@@ -133,9 +134,26 @@ research/
 
 **Flow:** OpenClaw agents (507-mac) → rsync (1min) → t2-103 agent content dir → `deploy.sh` (cron */5) → git push → GitHub Actions → GitHub Pages
 
+```
+Agent writes to fredricnet-live/content/
+    → rsync to t2-103 (every 1 min)
+    → deploy.sh detects changes (every 5 min cron on t2-103)
+    → git auto-commit + push to GitHub
+    → GitHub Actions builds Hugo (paitheme v1.1.0, hugo --minify --gc)
+    → Deployed to GitHub Pages (www.fredric.net, HTTPS enforced)
+```
+
 - `deploy.sh` — syncs content from agent workspace, auto-commits, pushes if changes detected
 - Cron: `*/5 * * * *` on t2-103, logs to `/tmp/fredricnet-deploy.log`
 - Agent content source: `009-openclaw/markdown-master/003-mmbots-shared-memory/01-projects/fredricnet/fredricnet-live/content/`
-- GitHub Actions: `.github/workflows/hugo.yml` — builds Hugo with paitheme from GitHub, deploys to Pages
+- GitHub Actions: `.github/workflows/hugo.yml` — builds Hugo extended + Go, pulls paitheme from GitHub, deploys to Pages
 - Total latency: ~8 min max (rsync 1min + cron 5min + CI build 2min)
+
+## Infrastructure
+
+- **Hosting:** GitHub Pages (custom domain, HTTPS enforced, cert expires 2026-05-30)
+- **DNS:** Cloudflare — `www.fredric.net` CNAME → `fredricnet.github.io` (DNS-only, not proxied)
+- **CI:** GitHub Actions (`.github/workflows/hugo.yml`) — triggers on push to `main` + manual dispatch
+- **Theme:** `github.com/fredricnet/paitheme` v1.1.0 (pulled as Hugo module in CI)
+- **Git identity:** `fredricnet` / `contact@fredric.net` (SSH key `~/.ssh/id_fredricnet`)
 
