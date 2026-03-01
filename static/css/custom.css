@@ -1,0 +1,7 @@
+/* Site-specific style overrides for fredricnet-website */
+
+/* Constrain header logo size */
+.logo-image {
+    max-height: 1.5rem;
+    width: auto;
+}

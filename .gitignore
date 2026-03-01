@@ -1,0 +1,11 @@
+# Hugo build output (CI builds fresh)
+/public/
+/resources/_gen/
+.hugo_build.lock
+hugo.direct.sum
+
+# Vendored modules
+_vendor/
+
+# macOS
+.DS_Store

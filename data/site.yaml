@@ -1,0 +1,63 @@
+# =============================================================================
+# FREDRIC.NET Site Configuration
+# =============================================================================
+
+# Brand / Logo
+brand:
+  name: "FREDRIC.NET"
+  logo:
+    use_svg_icon: false
+    image: "/images/fredric-net-logo-b.svg"
+    dark: "/images/fredric-net-svg-logo-dark.svg"
+    alt: "FREDRIC.NET Logo"
+  favicon: "/brand/favicon.svg"
+
+# Header
+header:
+  cta:
+    text: "Research"
+    url: "/research/"
+    style: "btn-primary"
+    hidden: true   # Research is in nav; no CTA button in header
+
+# Footer
+footer:
+  sections:
+    - title: "Content"
+      links:
+        - text: "Home"
+          url: "/"
+        - text: "Articles"
+          url: "/articles/"
+        - text: "Research"
+          url: "/research/"
+
+  social:
+    - platform: "github"
+      url: "https://github.com/fredricnet"
+      icon: "github"
+    - platform: "linkedin"
+      url: "https://linkedin.com"
+      icon: "linkedin"
+
+  copyright:
+    text: "FREDRIC.NET"
+
+  legal:
+    - text: "Privacy Policy"
+      url: "/privacy"
+
+# Schema / Structured Data (JSON-LD)
+schema:
+  organization:
+    name: "FREDRIC.NET"
+    description: "Research, insights, and perspectives on AI, autonomous systems, and digital transformation."
+    url: "https://www.fredric.net"
+    logo: "https://www.fredric.net/images/fredric-net-logo-b.svg"
+
+  website:
+    search_enabled: false
+
+  default_author:
+    name: "Fredric"
+    url: "https://www.fredric.net"

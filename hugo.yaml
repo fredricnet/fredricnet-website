@@ -1,0 +1,57 @@
+baseURL: 'https://www.fredric.net/'
+languageCode: 'en-us'
+title: 'FREDRIC.NET'
+description: 'Research, insights, and perspectives on AI, autonomous systems, and digital transformation.'
+
+module:
+  proxy: direct
+  private: "*"
+  imports:
+    - path: github.com/fredricnet/paitheme
+  # Local development: paitheme is pulled from ../paitheme via replace in go.mod
+  # Version is managed in go.mod (not pinned here, so replace directive works)
+
+# Suppress warnings for raw HTML in markdown
+ignoreLogs:
+  - 'warning-goldmark-raw-html'
+
+# Sitemap
+sitemap:
+  changeFreq: 'weekly'
+  priority: 0.5
+  filename: 'sitemap.xml'
+
+# Custom output formats
+outputFormats:
+  llmstxt:
+    mediaType: 'text/plain'
+    baseName: 'llms'
+    isPlainText: true
+    notAlternative: true
+  robotstxt:
+    mediaType: 'text/plain'
+    baseName: 'robots'
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - llmstxt
+    - robotstxt
+
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Research
+      url: /research/
+      weight: 2
+    - name: Articles
+      url: /articles/
+      weight: 3
+    - name: Dictionary
+      url: /dictionary/
+      weight: 4

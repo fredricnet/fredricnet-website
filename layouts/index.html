@@ -1,0 +1,49 @@
+{{ define "main" }}
+
+{{- /* Hero section rendered from _index.md shortcodes */ -}}
+{{- if .Content -}}
+{{ .Content }}
+{{- end -}}
+
+{{- /* Articles Section - pulled from /articles/ section */ -}}
+{{- $articlesSection := site.GetPage "/articles" -}}
+{{- if $articlesSection -}}
+<section class="blog-posts-section">
+    <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">Latest Posts</h2>
+            <p style="color: var(--color-text-secondary); font-size: 1.125rem;">Insights, updates, and perspectives</p>
+        </div>
+        <div class="blog-posts-grid">
+            {{- $sortedPages := sort $articlesSection.Pages "Date" "desc" -}}
+            {{- $homePosts := where $sortedPages "Params.featured-home" true -}}
+
+            {{- range $homePosts -}}
+            <article class="blog-card blog-card-full">
+                <div class="blog-card-image">
+                    {{- $imgSrc := partial "func/resolve-image.html" . -}}
+                    {{- if $imgSrc -}}
+                    <img src="{{ $imgSrc }}" alt="{{ .Title }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div class="blog-card-image-placeholder" style="display: none;">
+                        <p>{{ .Title }}</p>
+                    </div>
+                    {{- else -}}
+                    <div class="blog-card-image-placeholder">
+                        <p>{{ .Title }}</p>
+                    </div>
+                    {{- end -}}
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-badge">{{ .Params.category | default "Article" }}</div>
+                    <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                    <p class="blog-card-description">{{ .Description }}</p>
+                    <a href="{{ .Permalink }}" class="blog-card-link">Read more<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="blog-card-link-icon"><path d="m9 18 6-6-6-6"></path></svg></a>
+                </div>
+            </article>
+            {{- end -}}
+        </div>
+    </div>
+</section>
+{{- end -}}
+
+{{ end }}
