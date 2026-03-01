@@ -24,7 +24,15 @@ Deploy: GitHub Pages via `.github/workflows/hugo.yml` on push to `main`.
 
 ## Local Theme Development (paitheme)
 
-`go.mod` has `replace github.com/fredricnet/paitheme => ../paitheme` — Hugo watches both directories. **Do NOT add `version:` to the module import in `hugo.yaml`** — it bypasses the replace directive and pulls from GitHub instead.
+For local theme dev, temporarily add the replace directive to `go.mod`:
+```bash
+go mod edit -replace github.com/fredricnet/paitheme=../paitheme
+```
+Remove it before committing (CI pulls paitheme from GitHub):
+```bash
+go mod edit -dropreplace github.com/fredricnet/paitheme
+```
+**Do NOT add `version:` to the module import in `hugo.yaml`** — it bypasses the replace directive.
 
 Verify Hugo is watching both on startup: `Watching for changes in .../{fredricnet-website,paitheme}`
 
@@ -121,14 +129,13 @@ research/
 └── 07-conclusions/
 ```
 
-## Todo - fredricnet-website deployment process to github pages
+## Auto-Deploy Pipeline
 
-The openclaw agents have access to the fredricnet-website/content/ folder on Google Drive. When they copy or update files in the content directory I need to find a way to automatically first rebuild the server to generate the new public pages and when this is done only commit and push necessary updates and pages to my github account fredric.net using the correct github ssh key and account for the 002-fredricnet working directory. 
+**Flow:** OpenClaw agents (507-mac) → rsync (1min) → t2-103 agent content dir → `deploy.sh` (cron */5) → git push → GitHub Actions → GitHub Pages
 
-This can either be done by the agents using openclaw-mcp-bridge to Claude CLI or they may have the tool or skill to do this themselves!? 
-This step needs to be investigated.
-
-When pushed to github a github worker will deploy new updates on Github Pages.
-
-
+- `deploy.sh` — syncs content from agent workspace, auto-commits, pushes if changes detected
+- Cron: `*/5 * * * *` on t2-103, logs to `/tmp/fredricnet-deploy.log`
+- Agent content source: `009-openclaw/markdown-master/003-mmbots-shared-memory/01-projects/fredricnet/fredricnet-live/content/`
+- GitHub Actions: `.github/workflows/hugo.yml` — builds Hugo with paitheme from GitHub, deploys to Pages
+- Total latency: ~8 min max (rsync 1min + cron 5min + CI build 2min)
 
