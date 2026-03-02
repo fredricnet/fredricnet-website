@@ -153,6 +153,7 @@ Agent writes to fredricnet-live/content/
 
 - **Hosting:** GitHub Pages (custom domain, HTTPS enforced, cert expires 2026-05-30)
 - **DNS:** Cloudflare — `www.fredric.net` CNAME → `fredricnet.github.io` (DNS-only, not proxied)
+- **Cloudflare API token:** `claude-mcp-t2-103` — used by Claude Code MCP and CLI on t2-103 (502-tuf)
 - **CI:** GitHub Actions (`.github/workflows/hugo.yml`) — triggers on push to `main` + manual dispatch
 - **Theme:** `github.com/fredricnet/paitheme` v1.1.0 (pulled as Hugo module in CI)
 - **Git identity:** `fredricnet` / `contact@fredric.net` (SSH key `~/.ssh/id_fredricnet`)
