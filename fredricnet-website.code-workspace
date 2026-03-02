@@ -5,9 +5,8 @@
 		}
 	],
 	"settings": {
-		"editor.fontSize": 18,
+		"editor.fontSize": 16,
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "foam.foam-vscode",
-		"editor.fontFamily": "jetbrains mono, Menlo, Monaco, 'Courier New', monospace"
+		"editor.defaultFormatter": "foam.foam-vscode"
 	}
 }
