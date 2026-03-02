@@ -4,5 +4,10 @@
 			"path": "../../.."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"editor.fontSize": 18,
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "foam.foam-vscode",
+		"editor.fontFamily": "jetbrains mono, Menlo, Monaco, 'Courier New', monospace"
+	}
 }
