@@ -1,15 +1,11 @@
 ---
-title: "DAOs in Practice"
-description: "MakerDAO, Uniswap, Lido, and the messy reality of decentralized governance"
+title: "DAO Governance in Practice"
+description: "DAO governance case studies: MakerDAO's Endgame Plan, Uniswap's fee switch debate, Lido's dual governance, ConstitutionDAO, and Nouns DAO's fork mechanism."
 weight: 2
-linkTitle: "DAOs"
+linkTitle: "DAOs in Practice"
 type: docs
-tags:
-  - DAO
-  - Governance
-  - DeFi
-  - Smart Contracts
-categories:
+tags: ["DAOs", "governance", "MakerDAO", "Uniswap", "Lido", "Nouns DAO", "ConstitutionDAO"]
+categories: ["case-studies"]
 date: 2026-03-13
 lastmod: 2026-03-13
 draft: false
@@ -20,122 +16,150 @@ prev: a-examples
 next: c-autonomous-finance
 ---
 
-## Decentralized Autonomous Organizations: Theory Meets Reality
+## Why DAOs Matter
 
-A DAO, or Decentralized Autonomous Organization, is an organization whose rules are encoded as smart contracts on a blockchain. Decisions are made collectively by members who vote with governance tokens, and outcomes are executed automatically and transparently. No CEO, no board of directors, no central authority.
+Decentralized Autonomous Organizations are the closest thing we have to autonomous businesses operating at scale today. They manage billions of dollars in assets, govern critical financial infrastructure, and make collective decisions without centralized authority. They are also deeply flawed --- plagued by voter apathy, plutocratic capture, governance attacks, and the fundamental tension between decentralization and effectiveness.
 
-That is the theory. The practice is considerably messier, more interesting, and more instructive than any whitepaper suggests.
+Studying DAO governance is essential for anyone building autonomous businesses, because DAOs have already encountered (and often failed to solve) the governance problems that autonomous AI businesses will face. The lessons are expensive and hard-won.
 
-## How DAO Governance Works
+## MakerDAO: The Endgame Plan
 
-The basic governance cycle is consistent across most DAOs:
+MakerDAO is the oldest and most consequential DAO in DeFi. It governs the Maker Protocol, which issues DAI --- a decentralized stablecoin pegged to the US dollar, backed by cryptocurrency collateral. At its peak, MakerDAO managed over $10 billion in collateral and DAI was one of the most widely used stablecoins in DeFi [1].
 
-**Rules encoded in smart contracts**: The foundational rules -- how voting works, how the treasury is managed, what constitutes a valid proposal -- are written into smart contracts. Because these rules exist on a blockchain, they are transparent and cannot be changed by a single party without community consent [1].
+### The Governance Challenge
 
-**Governance tokens**: Participation requires holding the DAO's governance token. Holding tokens is analogous to holding shares -- it grants voting rights, and in most DAOs, voting power is proportional to token holdings.
+MakerDAO's governance history is a case study in the difficulty of governing a complex financial system through token voting. MKR token holders vote on critical parameters: collateral types, stability fees (interest rates), liquidation ratios, and protocol upgrades. Each of these decisions has material financial consequences --- setting a stability fee too low attracts excess borrowing and risks the peg; setting it too high stifles growth.
 
-**Proposal and voting cycle**: Any member (usually requiring a minimum token threshold) can submit a proposal. The community discusses it on forums and Discord, then a formal on-chain vote occurs. If the proposal passes the required quorum and approval threshold, the smart contract executes the decision automatically -- transferring funds, changing parameters, or deploying new code.
+The fundamental problem is expertise. Most MKR holders are not monetary policy experts. They are investors who bought the token for financial returns. Asking them to set interest rates for a multi-billion-dollar lending protocol is like asking airline shareholders to fly the plane.
 
-This process sounds clean. In practice, it reveals fundamental tensions that have defined DAO governance for years.
+### SubDAO Structure
 
-## Case Studies in DAO Governance
+The Endgame Plan, proposed by MakerDAO founder Rune Christensen in 2022 and progressively implemented since, represents the most ambitious DAO restructuring ever attempted. Its core innovation is the SubDAO: semi-autonomous organizational units that operate within MakerDAO's overall framework but have their own tokens, governance, and operational mandates [2].
 
-### MakerDAO and the Endgame Plan
+SubDAOs are designed to solve the expertise problem through specialization. Rather than having all MKR holders vote on all decisions, SubDAOs handle specific domains: one manages real-world asset collateral, another handles protocol engineering, a third manages growth and marketing. Each SubDAO has its own token, creating localized governance where domain experts have concentrated influence.
 
-MakerDAO governs the DAI stablecoin, one of the most important pieces of DeFi infrastructure. For years, MakerDAO was considered the gold standard of DAO governance -- complex, deliberate, and genuinely decentralized [2].
+The SubDAO structure also addresses voter fatigue. In a monolithic DAO, every governance proposal competes for the same limited attention. With SubDAOs, participants can focus on the domains they understand and care about, improving both participation rates and decision quality.
 
-Then came the Endgame Plan.
+### Lessons
 
-Proposed by founder Rune Christensen in 2022 and progressively implemented through 2024-2025, the Endgame Plan restructured MakerDAO into a system of "SubDAOs" -- semi-autonomous units responsible for specific functions (lending, real-world assets, growth). The plan also introduced AI governance tools, including AI-assisted proposal analysis and automated parameter adjustments.
+MakerDAO's journey illustrates several principles. First, DAO governance does not scale linearly. As the protocol grew in complexity and value, the governance burden grew faster, eventually exceeding the community's capacity. Second, progressive decentralization is preferable to instant decentralization. MakerDAO started with significant centralized control and gradually decentralized, which allowed the governance system to develop alongside the protocol. Third, governance structures must evolve. The original flat token-voting model worked for a small protocol but became dysfunctional at scale. The Endgame Plan is essentially a constitutional redesign.
 
-**What it reveals**: The Endgame Plan is a case study in the tension between decentralization and efficiency. Christensen argued that fully decentralized governance was too slow and too vulnerable to governance attacks. The SubDAO model concentrates operational authority while maintaining high-level decentralized oversight. Critics called it "re-centralization with extra steps."
+## Uniswap: The Fee Switch Debate
 
-The AI governance components are particularly instructive. MakerDAO began using AI to analyze risk parameters and suggest adjustments -- a form of AI-assisted governance that stops short of full autonomy but goes further than most DAOs in integrating algorithmic decision-making.
+Uniswap is the largest decentralized exchange by volume, processing billions of dollars in trades per month. Its governance, controlled by UNI token holders, has been dominated by a single, seemingly simple question: should the protocol charge fees? [3]
 
-### Uniswap: Governance at Scale
+### The Controversy
 
-Uniswap is the largest decentralized exchange by volume, and its governance process has been both a success story and a cautionary tale [3].
+Uniswap charges trading fees (typically 0.3% per swap) that go entirely to liquidity providers. The protocol itself --- and by extension, UNI token holders --- receives nothing. The "fee switch" is a built-in mechanism that would redirect a portion of trading fees to the Uniswap treasury, controlled by UNI governance.
 
-**The fee switch debate**: For years, Uniswap generated billions in trading fees, all of which went to liquidity providers. UNI token holders -- the people who theoretically govern the protocol -- received nothing. Proposals to activate a "fee switch" that would direct some fees to UNI holders were debated endlessly, with legal concerns (would this make UNI a security?) preventing action.
+For years, the fee switch has been the most debated topic in Uniswap governance. Proponents argue that the protocol needs sustainable revenue to fund development, security audits, and growth. Opponents argue that turning on the fee switch would make Uniswap less competitive (liquidity providers would receive less, potentially migrating to competitors) and could trigger regulatory scrutiny (if UNI holders receive protocol revenue, the token might be classified as a security) [4].
 
-**Voter apathy**: Uniswap governance suffers from severe voter apathy. Despite having hundreds of thousands of token holders, typical governance votes involve a few hundred wallets. Quorum requirements are regularly barely met. The practical result is that a small number of large token holders -- including the founding team and venture capital firms -- exercise disproportionate influence.
+### Governance Dynamics
 
-**Delegate model**: To address apathy, Uniswap adopted a delegation model where token holders can delegate their voting power to active community members. This has improved participation quality but created a new form of centralization: professional delegates who accumulate significant voting power and become de facto decision-makers.
+The fee switch debate reveals the pathologies of token-based governance. Large UNI holders (venture capital firms, the Uniswap Foundation, early team members) hold disproportionate voting power. Governance proposals require significant quorum thresholds (40 million UNI for binding votes), which means most proposals succeed or fail based on whether a handful of large holders participate.
 
-### Lido: Dual Governance
+Voter apathy is extreme. Typical Uniswap governance votes attract participation from less than 10% of circulating tokens. This means a small minority of holders makes decisions that affect billions of dollars in liquidity and millions of users.
 
-Lido controls approximately 28% of all staked Ethereum, making it systemically important to the Ethereum network. This concentration of influence raised alarms, and Lido responded with a "dual governance" model [4].
+The fee switch has been proposed, debated, voted on, revised, and re-proposed multiple times. As of 2026, a modified version has been implemented with a pilot program on select pools, but the full rollout remains contentious. The saga demonstrates that even a simple binary decision (fee on or fee off) can become intractable when governance is poorly structured [3].
 
-**How dual governance works**: Lido's model gives stETH holders (the people who actually staked their ETH through Lido) a veto over LDO governance decisions. If LDO token holders pass a proposal that stETH holders oppose, the stETH holders can trigger a time-locked veto process.
+## Lido: Dual Governance
 
-**Why it matters**: Dual governance addresses a fundamental problem with token-weighted voting: the people who govern a protocol (token holders) are not always the people who use it (stakers). By giving both groups a voice, Lido creates a check-and-balance system that more closely resembles bicameral legislature than simple majority rule.
+Lido is the largest liquid staking protocol, managing over $15 billion in staked ETH. Its governance structure has evolved in response to a fundamental problem: the interests of LDO token holders (who govern the protocol) and stETH holders (who deposit their ETH and bear the economic risk) are not always aligned [5].
 
-**Assessment**: Dual governance is one of the most sophisticated governance innovations in the DAO space. Its weakness is complexity -- the veto mechanism introduces delays and can create governance deadlocks. Whether the added safety justifies the reduced agility remains an open question.
+### The Conflict
 
-### ConstitutionDAO: The Flash DAO
+LDO holders can vote to change protocol parameters --- fee structures, node operator sets, withdrawal mechanisms --- that directly affect stETH holders' returns and risk exposure. But stETH holders have no governance power. They are economic participants without political representation.
 
-ConstitutionDAO was formed in November 2021 with a single purpose: raise money to buy a copy of the U.S. Constitution at a Sotheby's auction. In less than a week, the DAO raised $47 million from over 17,000 contributors [5].
+This creates a potential for extraction: LDO holders could vote to increase fees, reduce node operator diversity, or make decisions that benefit themselves at stETH holders' expense. The risk is not hypothetical --- governance attacks where token holders extract value from protocol users have occurred in multiple DeFi protocols.
 
-**What happened**: The DAO lost the auction to hedge fund billionaire Ken Griffin. The $47 million was returned to contributors (minus gas fees, which were substantial on Ethereum at the time). ConstitutionDAO then dissolved.
+### Dual Governance Model
 
-**What it reveals**: ConstitutionDAO demonstrated both the power and the limitations of DAOs. On the power side: a decentralized community raised $47 million in days, with no legal entity, no bank account, and no traditional organizational structure. On the limitation side: the DAO's governance was minimal (there was nothing to govern -- the objective was singular), the smart contract had significant centralization risks (a small multisig controlled the funds), and the gas fees consumed a meaningful portion of small contributions.
+Lido's response is "dual governance": a system where stETH holders have veto power over governance proposals that affect them. LDO holders propose and vote on changes as before, but stETH holders can collectively block proposals through a signaling mechanism. If enough stETH holders signal opposition, the proposal enters a dispute resolution phase [5].
 
-ConstitutionDAO is best understood as a proof of concept for rapid, purpose-built coordination. It was not an autonomous business -- it was a fundraising flash mob. But it demonstrated that DAO infrastructure can mobilize capital at remarkable speed.
+This is a significant innovation in DAO governance. It separates proposal power (LDO holders) from veto power (stETH holders), creating a checks-and-balances dynamic similar to bicameral legislatures. The model acknowledges that different stakeholders have different interests and different types of legitimacy, and it gives each group appropriate governance power.
 
-### Nouns DAO and the Fork
+The implementation is technically complex. Measuring stETH holder sentiment requires on-chain signaling mechanisms that are resistant to manipulation. Setting veto thresholds requires balancing sensitivity (too low and minorities can block everything) against effectiveness (too high and the veto is meaningless). Lido's dual governance is still being refined, but the conceptual framework is already influencing other DAOs.
 
-Nouns DAO is an experiment in perpetual funding: every day, a new Noun NFT is auctioned, and the proceeds go to the DAO treasury. By mid-2023, the treasury held approximately $50 million in ETH [6].
+## ConstitutionDAO: Success and Failure
 
-**The fork**: In September 2023, a supermajority of Nouns holders voted to fork the DAO, essentially allowing members to exit with their proportional share of the treasury. The fork was triggered by frustration with how treasury funds were being spent -- or rather, how slowly and inefficiently they were being allocated.
+ConstitutionDAO was formed in November 2021 with a singular purpose: to buy a copy of the United States Constitution at a Sotheby's auction. The DAO raised approximately $47 million in ETH from over 17,000 contributors in less than a week [6].
 
-**What it reveals**: The Nouns fork is a case study in DAO exit rights. Traditional organizations make it difficult for members to exit with their share of assets. Nouns' fork mechanism provided a credible exit threat, which in theory should discipline governance. In practice, the fork drained a significant portion of the treasury, leaving the remaining DAO with fewer resources and an uncertain future.
+### The Experiment
 
-The lesson is that exit rights are double-edged. They protect members from governance capture, but they also create instability -- any unpopular decision can trigger an exodus.
+ConstitutionDAO is remarkable for what it demonstrated about collective action. In less than seven days, thousands of strangers coordinated to pool tens of millions of dollars for a shared objective. The DAO used Juicebox (a crowdfunding protocol) for fundraising, a multi-sig wallet for fund custody, and social media for coordination. No incorporation, no legal entity, no formal governance structure.
 
-## Persistent Governance Challenges
+### The Failure
 
-Across all DAO case studies, several challenges recur:
+ConstitutionDAO lost the auction. The winning bid was $43.2 million, slightly above ConstitutionDAO's effective bidding limit (which accounted for post-purchase costs like storage, insurance, and ongoing governance). The DAO then faced the problem of returning funds to contributors.
 
-**Plutocracy**: Token-weighted voting inherently favors wealthy participants. One token, one vote means one whale can outvote thousands of small holders. Attempts to address this -- quadratic voting, reputation-weighted voting, identity-based voting -- each introduce their own problems (Sybil attacks, subjectivity, privacy concerns) [7].
+The refund process revealed the practical limitations of DAO coordination. Gas fees (Ethereum transaction costs) consumed a significant portion of smaller contributions. Many contributors never claimed their refunds. The PEOPLE governance token, intended to become worthless after the refund, instead became a speculative asset traded on exchanges --- a memecoin born from a failed constitutional experiment.
 
-**Voter apathy**: Most token holders do not vote. Participation rates of 5-10% are common even for significant decisions. This means that DAOs are effectively governed by a small minority of active participants, undermining the "decentralized" part of the name.
+### Lessons
 
-**Governance attacks**: Bad actors can accumulate tokens specifically to pass malicious proposals. Flash loan governance attacks -- borrowing tokens for the duration of a vote -- have been demonstrated in multiple protocols.
+ConstitutionDAO teaches two important lessons. First, DAOs can mobilize collective action at unprecedented speed and scale for clearly defined objectives. The specificity of the mission (buy this document at this auction) enabled coordination that would have been impossible for a vague or open-ended goal. Second, DAOs are poorly suited to one-shot objectives. Once the auction was lost, the DAO had no purpose, no governance structure for winding down, and no mechanism for clean dissolution. The PEOPLE token's continued existence as a speculative asset is a direct consequence of this governance gap [6].
 
-**Legal ambiguity**: DAOs exist in a legal gray zone. They are not corporations, partnerships, or any other recognized legal entity in most jurisdictions. This creates problems for contracts, liability, taxation, and regulatory compliance. Wyoming and the Marshall Islands have passed DAO-specific legislation, but coverage remains limited [8].
+## Nouns DAO: The Fork Mechanism
 
-**Coordination overhead**: Decentralized decision-making is slow. Proposals must be discussed, voted on, and executed through multi-step processes. For operational decisions that need to be made quickly, this overhead can be crippling.
+Nouns DAO is one of the most well-funded and innovative DAOs in the ecosystem. Each day, a single Noun NFT is auctioned, and the proceeds go to the Nouns DAO treasury. By 2024, the treasury had accumulated over $50 million in ETH [7].
 
-## The DAO Governance Maturity Curve
+### Governance by NFT
 
-Looking across these case studies, a maturity curve emerges:
+Nouns governance is unusual: each Noun NFT represents one vote. There are no fungible governance tokens. This creates a naturally limited voter set (one Noun per day means roughly 365 new voters per year) with clear identity (each Noun is a unique, publicly visible NFT).
 
-**Phase 1 -- Token launch and enthusiasm**: High participation, simple governance, community energy. This is the honeymoon period.
+The limited voter set has both advantages and disadvantages. On the positive side, Nouns governance avoids the extreme voter apathy that plagues larger DAOs --- with fewer voters, each vote matters more, and participation rates are substantially higher. On the negative side, the concentrated voting power means a small coalition of Noun holders can control governance, and the high cost of acquiring a Noun (auction prices have ranged from tens to hundreds of thousands of dollars) creates a plutocratic barrier to entry.
 
-**Phase 2 -- Governance fatigue**: Voter participation drops. Routine decisions become tedious. Power consolidates among active participants. The DAO begins to resemble a traditional organization with extra steps.
+### The Fork
 
-**Phase 3 -- Crisis and reform**: A governance failure, security incident, or treasury dispute forces the DAO to rethink its governance structure. This often leads to innovations (delegation, SubDAOs, dual governance) or dissolution.
+Nouns DAO's most significant governance innovation is "ragequit" or "fork" --- the ability for dissatisfied Noun holders to exit the DAO with their proportional share of the treasury. If you hold a Noun and disagree with the DAO's direction, you can burn your Noun and receive your pro-rata share of the treasury in ETH [7].
 
-**Phase 4 -- Institutional maturity**: The DAO develops stable governance processes, professional contributors, and clear operational procedures. Few DAOs have reached this phase. MakerDAO and Lido are the closest examples.
+This mechanism, inspired by Moloch DAO's ragequit function, fundamentally changes governance dynamics. In a traditional corporation, minority shareholders who disagree with management have limited options: sell their shares (possibly at a loss) or launch a costly proxy fight. In Nouns DAO, exit is always available at fair value.
 
-Understanding where a DAO sits on this curve is essential for evaluating its governance health. A Phase 1 DAO with high participation is not necessarily better governed than a Phase 3 DAO that has survived a crisis and reformed its processes.
+The fork mechanism creates a market discipline on governance. If the DAO makes decisions that destroy value or benefit insiders at the expense of the broader membership, dissatisfied members will fork, draining the treasury. The threat of exit constrains the majority from exploiting the minority, because exploitation triggers withdrawal.
 
----
+In practice, Nouns DAO has experienced significant fork events. In 2023, a group of Noun holders triggered a fork, withdrawing millions of dollars from the treasury. The fork was prompted by disagreements about spending priorities and governance direction. The post-fork DAO continued to operate with a reduced treasury, and the forking members received their proportional share.
 
-**References**
+### Smart Contract Governance
 
-[1] V. Buterin, "DAOs, DACs, DAs and More: An Incomplete Terminology Guide," blog.ethereum.org, 2014.
+All of these DAOs share a common foundation: smart contract governance. Governance proposals are submitted as on-chain transactions, votes are recorded on the blockchain, and approved proposals are executed automatically by the governance contract. This creates transparency (all governance activity is publicly auditable) and credibility (approved proposals execute without requiring trust in any intermediary).
 
-[2] MakerDAO, "The Maker Endgame Plan," forum.makerdao.com, 2022.
+But smart contract governance also creates rigidity. Modifying governance rules requires governance proposals, which are subject to the existing rules. Fixing a broken governance mechanism requires using that broken mechanism to approve the fix. This bootstrapping problem has plagued several DAOs and illustrates the importance of including upgrade mechanisms and emergency procedures in initial governance designs.
 
-[3] Uniswap Foundation, "Uniswap Governance Report 2024," uniswap.org, 2024.
+### Voting Mechanisms
 
-[4] Lido DAO, "Lido Dual Governance: Design and Rationale," research.lido.fi, 2024.
+The DAOs examined here use several voting mechanisms:
 
-[5] ConstitutionDAO, "Post-Mortem," constitutiondao.com, 2021.
+**Simple token voting** (Uniswap, early MakerDAO): one token, one vote. Simple but plutocratic.
 
-[6] Nouns DAO, "Nouns Fork Documentation," nouns.wtf, 2023.
+**Delegated voting** (most major DAOs): token holders delegate their voting power to representatives. Improves participation but concentrates power in delegates.
 
-[7] V. Buterin, "Moving beyond coin voting governance," vitalik.eth.limo, 2021.
+**Conviction voting** (Gitcoin, some smaller DAOs): voting power increases with the duration of the vote. Rewards commitment but creates inertia.
 
-[8] A. Wright and P. De Filippi, "Decentralized Blockchain Technology and the Rise of Lex Cryptographia," SSRN, 2015.
+**Quadratic voting** (Gitcoin Grants): voting power scales with the square root of tokens committed. Reduces plutocratic influence but is vulnerable to Sybil attacks (splitting holdings across multiple addresses).
+
+**NFT-based voting** (Nouns): one NFT, one vote. Limits voter set but creates high barriers to entry.
+
+No mechanism is clearly superior. Each makes different tradeoffs between inclusivity, efficiency, expertise, and resistance to manipulation. The choice of voting mechanism is itself a governance decision, and it shapes all subsequent governance outcomes.
+
+## The Governance Frontier
+
+These case studies reveal that DAO governance is hard --- harder than most early advocates anticipated. The challenges are not primarily technical. The smart contracts work. The voting mechanisms function. The problems are human: voter apathy, information asymmetry, misaligned incentives, coordination failures, and the persistent tension between efficiency and decentralization.
+
+For autonomous AI businesses, these lessons are directly applicable. AI can potentially mitigate some governance failures --- it does not suffer from apathy, it can process all available information, and it can evaluate proposals against explicit criteria. But AI introduces its own governance risks: algorithmic bias, objective misalignment, and the opacity of machine decision-making.
+
+The DAOs examined here are governance laboratories. Their experiments --- SubDAO structures, dual governance, fork mechanisms, progressive decentralization --- represent the state of the art in decentralized governance. Autonomous AI businesses will build on these foundations, and they will need to.
+
+## References
+
+[1] MakerDAO. "The Maker Protocol: MakerDAO's Multi-Collateral Dai (MCD) System." (2020).
+
+[2] Christensen, R. "The Endgame Plan: A Comprehensive Restructuring of MakerDAO." MakerDAO Forum (2022).
+
+[3] Uniswap Governance. "Fee Switch Proposal History." Uniswap Governance Forum (2022-2025).
+
+[4] Adams, H. "Uniswap v3 Core." Uniswap Labs (2021).
+
+[5] Lido DAO. "Lido Dual Governance: Design and Rationale." Lido Research Forum (2024).
+
+[6] ConstitutionDAO. "ConstitutionDAO Post-Mortem." (2021).
+
+[7] Nouns DAO. "Nouns DAO: Governance and Fork Mechanism." (2023).

@@ -118,16 +118,20 @@ No custom JS. No custom shortcodes. All layouts (docs, blog, dictionary) inherit
 2. Structure: Overview → Technical Nuance → Business Use Cases → Broader Context → Related Terms → References
 
 ## Research Chapter Structure
-This is done by the openclaw agents on 507-mac
+Content managed by openclaw agents on 507-mac. Agent source syncs to site via deploy.sh (cron */5).
 ```
 research/
-├── 01-introduction/
-├── 02-foundations/
-├── 03-challenges/      # 8 articles (largest chapter)
-├── 04-case-studies/
-├── 05-benefits-risks/
-├── 06-creative-approaches/
-└── 07-conclusions/
+├── 01-introduction/           # Definitions, thesis, emergence spectrum
+├── 02-foundations/            # Architectures, agents, multi-agent, org models, protocols, blockchain
+├── 03-legal/                  # Legal personhood, DAO structures, EU AI Act, liability, compliance
+├── 04-ethical/                # Accountability, alignment, labor displacement, transparency, frameworks
+├── 05-technical-challenges/   # Governance, security, reliability, errors, identity, self-improvement
+├── 06-case-studies/           # Examples, DAOs, autonomous finance, tools, failures, network states
+├── 07-benefits-risks/         # Benefits, risks, long-term impact
+├── 08-creative-approaches/    # Hybrid governance, collaboration, adaptive AI, SPAWN scenario, regulatory innovation
+├── 09-conclusions/            # Key findings, further research, reflections, credits
+├── 10-forensic-studies/       # Forensic case studies (Moltbook) with provenance metadata
+└── references/                # Categorized bibliography (200+ sources)
 ```
 
 ## Auto-Deploy Pipeline

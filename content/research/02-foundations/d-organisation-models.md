@@ -1,8 +1,8 @@
 ---
-title: "Organisation Models for Autonomous Business"
-description: "DAOs, zero-member LLCs, network states, and the question of who owns an autonomous business"
+title: "Organisation Models"
+description: "Legal structures for autonomous businesses — DAOs, zero-member LLCs, network states, and the jurisdictions racing to accommodate AI-operated entities."
 weight: 4
-linkTitle: "Organisation Models"
+linkTitle: "Organisation"
 type: docs
 tags:
   - Research
@@ -17,142 +17,114 @@ prev: c-multiagent-systems
 next: e-protocols
 ---
 
-## The Ownership Question
+Here is the uncomfortable question at the heart of autonomous businesses: can a company exist without any humans in it?
 
-Imagine an AI system that identifies a market opportunity, incorporates a business entity, hires contractors, delivers a product, collects revenue, and reinvests profits -- all without human direction. Who owns this business? Who is liable when something goes wrong? Who pays taxes on the revenue?
+The technical answer is increasingly "yes." The legal answer is "it depends on where you incorporate." And the philosophical answer opens a can of worms that will keep legal scholars busy for decades. But the practical reality is that several jurisdictions already offer legal structures that can accommodate businesses operated entirely -- or almost entirely -- by AI agents. Understanding these structures is essential for anyone serious about building autonomous businesses, because the legal wrapper determines everything from liability to tax treatment to the ability to open a bank account.
 
-These are not hypothetical questions for a distant future. They are practical problems that existing organizational models struggle to answer. This section examines the structures that attempt to bridge the gap between traditional corporate law and the reality of increasingly autonomous business operations.
+<!--more-->
 
-## The Zero-Member LLC: Bayern's Radical Insight
+## The Zero-Member LLC
 
-In 2015, Shyam Sundar Bayern published a paper that should have caused more alarm in legal circles than it did [1]. His argument was straightforward: under existing US law, particularly the flexible LLC statutes of states like Delaware, it is possible to create a company with no human members.
+The most provocative legal concept in this space comes from Shawn Bayern's work on autonomous entities operating through LLCs. Bayern demonstrated that under existing LLC law in most US states, it is possible to create an LLC, have the sole member withdraw after delegating operational authority to an algorithmic system, and end up with a legally valid entity that has no human members [1].
 
-The mechanism exploits a chain of legal provisions:
+This is not a loophole. It is a consequence of how LLC statutes are written. LLCs are creatures of contract -- their operating agreements define how they function, and those agreements can delegate management authority to non-human systems. When the last human member withdraws, the LLC does not automatically dissolve (in most states), and the operating agreement's provisions for algorithmic management remain in effect.
 
-1. Most LLC statutes allow another entity (not just a natural person) to serve as a member
-2. An LLC can be managed by a non-member manager
-3. If the sole member of an LLC is itself an LLC, and that LLC's sole member is another LLC, you can create a chain with no natural person at the end
-4. Alternatively, an LLC's operating agreement can designate a software system as the manager, with no members required after initial formation
+Bayern's insight was that you do not need new legislation to create AI-operated legal entities. The existing infrastructure is sufficient, if you are willing to think creatively about operating agreements. The LLC becomes a legal shell animated by software rather than by humans.
 
-Bayern was not advocating for zero-member LLCs. He was pointing out that existing law does not clearly prohibit them, and that this gap would become practically significant as AI systems became capable of managing business operations.
+The practical implications are significant. A zero-member LLC can hold property, enter contracts, maintain bank accounts, and sue or be sued. It provides limited liability, which means the AI system's errors do not automatically expose any human to unlimited financial risk. And it can operate indefinitely, without the biological constraints that limit human-operated businesses.
 
-The legal community's response has been mixed. Some scholars argue that LLC statutes implicitly require human participation through concepts like fiduciary duty and good faith [2]. Others note that Bayern's reading of the statutes is technically correct, even if it was not what legislators intended. The gap remains unresolved, which means the first serious attempt to create a zero-member LLC will likely trigger a legal battle that shapes the field for decades.
+The obvious concern is accountability. If an AI-operated LLC causes harm, who is responsible? The LLC itself has assets that can be attached, but there is no human to hold personally liable (absent piercing the corporate veil). This is not fundamentally different from any other limited liability entity -- that is what "limited liability" means -- but it feels different when there is no human in the loop at all.
 
-## DAOs: Decentralized Governance in Practice
+## Wyoming DAO LLC
 
-Decentralized Autonomous Organizations offer a different answer to the ownership question: distribute it among token holders, encode governance rules in smart contracts, and let the collective make decisions through voting [3].
+Wyoming was the first US state to pass legislation specifically addressing decentralized autonomous organizations, with its DAO LLC statute taking effect in 2021 [2]. The law allows DAOs to register as LLCs, giving them the benefits of legal personality while preserving their decentralized governance structure.
 
-### The Promise
+Under the Wyoming model, a DAO LLC can be either "member-managed" or "algorithmically managed." The latter category is particularly relevant for autonomous businesses -- it explicitly contemplates entities where smart contracts, rather than human votes, drive operational decisions.
 
-The theoretical appeal of DAOs is significant:
+The statute requires a registered agent in Wyoming (who must be human or a registered agent service), and it imposes some disclosure requirements about the smart contracts governing the DAO. But it does not require human members or human managers. An algorithmically managed DAO LLC can operate autonomously, within the bounds of its smart contract governance.
 
-- **Transparent governance**: All decisions are recorded on-chain, creating an auditable history
-- **Democratic participation**: Token holders vote on proposals proportional to their stake
-- **Programmable rules**: Smart contracts enforce governance automatically -- no need to trust that officers will follow bylaws
-- **Global participation**: Anyone with tokens can participate regardless of jurisdiction
+Wyoming's approach has been influential but also criticized. The statute was written primarily with blockchain-based DAOs in mind, and some of its provisions (like requirements for on-chain governance) are awkward fits for AI agent-based systems that may not use blockchain at all. Nevertheless, it established the precedent that algorithmically governed entities can have legal standing, and that precedent matters.
 
-### The Reality
+## Marshall Islands MIDAO
 
-Practical experience with DAOs has revealed several persistent challenges:
+The Republic of the Marshall Islands went further than Wyoming with its MIDAO (Marshall Islands DAO) Act, enacted in 2022 [3]. The legislation was developed in collaboration with the MIDAO Directory Foundation and creates a framework specifically designed for decentralized autonomous organizations operating internationally.
 
-**Voter apathy**: Most DAO governance suffers from low participation rates. MakerDAO, one of the most established DAOs, typically sees less than 10% of token holders voting on proposals [4]. This concentrates effective decision-making in the hands of a small number of large token holders -- reproducing the very concentration of power that DAOs were designed to prevent.
+The Marshall Islands framework is notable for several reasons. First, it does not require any connection to blockchain -- it is technology-neutral, which makes it more naturally applicable to AI agent-based organizations. Second, it provides a clear legal personality to DAOs, including the ability to enter contracts, hold property, and limit member liability. Third, it is designed for international operations, recognizing that autonomous entities are unlikely to confine themselves to a single jurisdiction.
 
-**Plutocratic governance**: One-token-one-vote means wealthy participants dominate. Quadratic voting and delegation mechanisms have been proposed as solutions, but none has achieved widespread adoption.
+The MIDAO structure has attracted attention from projects building truly autonomous organizations precisely because of this technology neutrality. An AI-operated business can incorporate as a MIDAO entity without needing to force-fit its architecture into blockchain-centric requirements.
 
-**Smart contract rigidity**: Governance rules encoded in smart contracts are difficult to update. When circumstances change in ways the original contract did not anticipate, the organization faces a choice between a complex on-chain upgrade process and working around its own rules.
+## Delaware Series LLC
 
-**Legal uncertainty**: Without legal personality, a DAO cannot own property, enter contracts, or limit the liability of its participants in most jurisdictions. This creates real problems -- when The DAO lost $60 million to a smart contract exploit in 2016, there was no legal entity to sue, no insurance to claim, and no established process for recovering funds [5].
+Delaware's Series LLC is not specifically designed for autonomous businesses, but it has properties that make it unusually well-suited to multi-agent systems. A Series LLC allows a single LLC to create multiple internal "series," each with its own assets, liabilities, members, and managers -- and crucially, each series is legally shielded from the liabilities of the others [4].
 
-### Wyoming DAO LLC
+For an autonomous business running multiple AI agents, each handling different business functions, the Series LLC structure provides a natural mapping. Each agent (or group of agents handling a specific function) can operate within its own series, with its own assets and its own liability boundary. If the sales agent makes a catastrophic error, the damage is contained within the sales series and does not expose the assets of the finance or operations series.
 
-Wyoming addressed the legal personality problem in 2021 by enacting legislation allowing DAOs to register as LLCs [6]. A Wyoming DAO LLC has:
+This is essentially corporate-level fault isolation -- the organizational equivalent of the fault isolation that multi-agent architectures provide at the technical level. The alignment between technical architecture and legal structure is not coincidental. Both are solving the same problem: how to contain failures in complex systems with multiple autonomous components.
 
-- Legal personality (can own property, enter contracts, sue and be sued)
-- Limited liability for members
-- The ability to encode governance rules in smart contracts rather than traditional operating agreements
-- A requirement for at least one algorithmically managed function
+## Network States and Balaji's Vision
 
-This was a landmark -- the first time a US jurisdiction explicitly recognized that business governance could be partially algorithmic. The limitation is that Wyoming DAO LLCs still require human members who bear ultimate responsibility for the organization's actions. They decentralize governance but do not eliminate the need for human accountability.
+Balaji Srinivasan's concept of the "network state" pushes organizational models into genuinely uncharted territory [5]. A network state is a highly aligned online community with a capacity for collective action that crowdfunds territory around the world and eventually gains diplomatic recognition. It is, in essence, a country that starts as a startup.
 
-### Marshall Islands MIDAO
+The network state concept is relevant to autonomous businesses not because AI agents are going to found countries (probably), but because it challenges the assumption that legal entities must exist within the framework of a single nation-state. If autonomous businesses operate globally, transact in cryptocurrencies, and have no physical headquarters, which jurisdiction's laws govern them?
 
-The Republic of the Marshall Islands went further with the MIDAO (Marshall Islands Decentralized Autonomous Organization) Act, which provides a framework specifically designed for DAO incorporation with international recognition [7]. MIDAO entities can be formed entirely through smart contract governance, with no requirement for traditional officers or directors.
+Srinivasan's answer is that they create their own governance frameworks -- network states or network unions -- that eventually gain recognition through demonstrated competence and scale. This is speculative, but it points toward a future where autonomous businesses might exist in a legal space that does not map neatly onto any current jurisdiction.
 
-The practical value of MIDAO registration depends on international recognition. A MIDAO entity can enter contracts in jurisdictions that recognize Marshall Islands corporate law, but enforcement across borders remains untested in court.
-
-## Network States: Organizational Emergence at Scale
-
-Balaji Srinivasan's "network state" concept pushes organizational emergence to its logical extreme: a community that begins as an online social network, develops shared values and governance, acquires physical territory, and eventually gains diplomatic recognition as a sovereign entity [8].
-
-The concept is relevant to autonomous business because it describes a pathway for emergent organizations to acquire the legal and territorial standing that traditional governance requires. A network state is not an autonomous business, but it could provide the jurisdictional framework within which autonomous businesses operate.
-
-Several projects are experimenting with network state concepts:
-
-- **Prospera** in Honduras operates as a semi-autonomous economic zone with its own regulatory framework
-- **Praxis** is attempting to build a network state focused on technology and innovation
-- **Cabin** operates as a decentralized city with physical locations coordinated through DAO governance
-
-None has achieved diplomatic recognition, and the concept faces obvious challenges -- existing nation-states have limited enthusiasm for recognizing digital upstarts as sovereign equals. But the experiments illustrate the range of organizational models being explored.
+The practical relevance today is more modest: network state thinking informs how autonomous businesses might structure their governance when existing jurisdictional categories do not fit. A community of autonomous business operators might form a network union that lobbies for favorable regulation, establishes shared standards, and provides mutual assurance -- a trade association for entities that have no human employees.
 
 ## Progressive Decentralization
 
-A more pragmatic approach, and one with real traction in the startup ecosystem, is progressive decentralization: beginning as a traditional company and gradually transitioning decision-making authority to algorithmic systems and distributed governance [9].
+In practice, most autonomous businesses will not start as fully autonomous entities. They will follow a path of progressive decentralization -- starting with heavy human oversight and gradually reducing it as the AI systems demonstrate reliability [6].
 
-The model typically follows stages:
+This pattern is already well-established in the crypto world, where projects typically launch with a core team making all decisions, then progressively transfer authority to token holders and smart contracts. The same approach applies to AI-operated businesses:
 
-1. **Traditional startup**: Human founders, conventional corporate structure, centralized decision-making
-2. **Tokenization**: Issue governance tokens, begin involving community in non-critical decisions
-3. **Operational automation**: Deploy AI agents for routine business functions, maintain human oversight for strategic decisions
-4. **Governance distribution**: Transfer increasing decision-making authority to token-holder voting and algorithmic governance
-5. **Full autonomy** (theoretical): Complete transition to autonomous operation with no human management
+**Phase 1: Human-operated, AI-assisted.** Humans make all decisions, AI agents handle execution. Standard LLC or corporation structure. This is where most companies using AI tools are today.
 
-Most projects claiming to follow this model are somewhere between stages 2 and 3. No major project has successfully completed stage 4, and stage 5 remains theoretical.
+**Phase 2: Human-supervised, AI-operated.** AI agents make routine decisions, humans handle exceptions and strategy. Standard LLC with algorithmic management provisions in the operating agreement. A growing number of startups are reaching this stage.
 
-The value of progressive decentralization is not that it provides a guaranteed path to autonomous business but that it provides a framework for incremental progress. Each stage can be evaluated independently, and the transition can be paused or reversed if problems emerge.
+**Phase 3: Human-governed, AI-autonomous.** AI agents handle all operations, humans retain governance authority (board seats, veto power). DAO LLC or similar structure. A handful of experimental projects operate here.
 
-## Delaware Series LLC: The Compartmentalization Strategy
+**Phase 4: Fully autonomous.** No human involvement in operations or governance. Zero-member LLC, MIDAO, or novel legal structure. This remains largely theoretical, with a few provocative demonstrations.
 
-Delaware's Series LLC structure deserves mention as a creative tool for autonomous business architectures [10]. A Series LLC can create separate "series" within a single legal entity, each with its own assets, liabilities, and members. Liability is compartmentalized -- the debts of one series do not affect another.
+Most organizations will settle somewhere in Phase 2 or 3 for the foreseeable future. Full autonomy (Phase 4) is technically achievable but raises accountability questions that current legal frameworks handle poorly. The smart approach is to push toward autonomy incrementally, building trust and legal precedent as you go.
 
-For autonomous business, this enables a model where:
+## The Jurisdictional Race
 
-- Each AI agent or agent team operates as a separate series
-- Revenue and expenses are tracked per-series
-- A failing agent can be "shut down" (series dissolved) without affecting others
-- New agents can be "hired" (new series created) without restructuring the parent entity
+What we are witnessing is a jurisdictional competition for autonomous business incorporation, similar to the competition for corporate charters that Delaware won in the 20th century. Wyoming, the Marshall Islands, Switzerland, Singapore, and several other jurisdictions are all positioning themselves as friendly homes for algorithmically governed entities.
 
-This maps naturally to multi-agent system architectures where specialized agents handle different business functions. The Series LLC provides legal compartmentalization that mirrors the technical compartmentalization of the agent system.
+The winner of this race will likely be the jurisdiction that best balances three concerns: legal clarity (so autonomous businesses know what rules apply), flexibility (so the legal framework does not become obsolete as technology evolves), and credibility (so contracts with autonomous entities are recognized and enforceable internationally).
 
-## Mapping Models to the Emergence Spectrum
+This last point -- credibility -- is where many crypto-native jurisdictions stumble. Incorporating a DAO in a small Pacific island nation is easy. Getting a European bank to recognize that entity's contractual authority is hard. The jurisdictions that will ultimately matter are not necessarily the most permissive but the ones whose legal frameworks are respected by courts and financial institutions worldwide.
 
-Using the Theater-Illusion-Emergence framework from the introduction:
+## Mapping Structure to Architecture
 
-**Theater**: Projects that claim to be DAOs or autonomous organizations but have governance tokens with no actual decision-making power, or "AI-managed" entities where a human quietly makes all decisions.
+The organizational models discussed here are not just legal abstractions. They interact directly with the technical architecture of multi-agent systems:
 
-**Illusion**: Wyoming DAO LLCs and similar structures where governance is partially algorithmic but human members retain ultimate authority and make most substantive decisions. The structure enables autonomy that the practice does not yet deliver.
+| Technical Pattern | Legal Structure | Why It Fits |
+|---|---|---|
+| Single agent, single function | Standard LLC | Simple mapping of one agent to one entity |
+| Multi-agent, role-based (CrewAI) | Series LLC | Each role gets its own liability boundary |
+| Multi-agent, consensus-based | DAO LLC | Governance through algorithmic agreement |
+| Agent ecosystem, cross-entity | MIDAO + A2A Protocol | International operations, technology-neutral |
+| Self-replicating agents (SPAWN) | Progressive decentralization | Start human-governed, evolve toward autonomy |
 
-**Emergence**: No existing organizational model has fully demonstrated genuine emergence. The closest examples are multi-agent systems that occasionally exhibit autonomous problem-solving within traditional corporate structures -- the organizational model has not caught up with the technical capability.
+The most capable autonomous businesses will be those that align their legal structure with their technical architecture, so that the liability boundaries, governance mechanisms, and operational authorities in the legal domain mirror the agent boundaries, coordination protocols, and action spaces in the technical domain.
 
-The gap between available organizational models and the technical capability of AI agents is one of the central tensions in autonomous business. The agents can reason, plan, and act. The legal structures cannot yet accommodate an entity where no human is ultimately responsible. Resolving this tension is the work of the next decade.
+This is not just an academic exercise. The legal structure an autonomous business chooses determines whether it can open bank accounts, whether its contracts are enforceable, whether it can hold intellectual property, and whether it can interact with the traditional business world. Getting the organizational model right is as important as getting the technology right.
 
 ## References
 
-[1] Bayern, S. (2015). "The Implications of Modern Business-Entity Law for the Regulation of Autonomous Systems." Stanford Technology Law Review, 19(1), 93-112.
+[1] S. Bayern, "The Implications of Modern Business-Entity Law for the Regulation of Autonomous Systems," *Stanford Technology Law Review*, vol. 19, pp. 93-112, 2015.
 
-[2] LoPucki, L. M. (2018). "Algorithmic Entities." Washington University Law Review, 95(4), 887-953.
+[2] Wyoming Legislature, "SF0038 - Decentralized Autonomous Organizations," 2021. Available: https://www.wyoleg.gov/Legislation/2021/SF0038
 
-[3] Buterin, V. (2014). "DAOs, DACs, DAs and More: An Incomplete Terminology Guide." Ethereum Blog.
+[3] MIDAO Directory Foundation, "Marshall Islands DAO Act," 2022. Available: https://www.midao.org
 
-[4] Barbereau, T. et al. (2023). "DeFi, Not So Decentralized: The Measured Distribution of Voting Rights." Hawaii International Conference on System Sciences (HICSS).
+[4] Delaware Code, Title 6, Chapter 18, Subchapter IX -- Protected Series.
 
-[5] Siegel, D. (2016). "Understanding The DAO Attack." CoinDesk.
+[5] B. Srinivasan, *The Network State: How to Start a New Country*. 1729, 2022.
 
-[6] Wyoming Legislature. (2021). SF0038 - Decentralized Autonomous Organizations. Session Laws, Chapter 96.
+[6] J. Walden, "Progressive Decentralization: A Playbook for Building Crypto Applications," a16z Crypto, 2020.
 
-[7] Republic of the Marshall Islands. (2022). "Decentralized Autonomous Organization Act."
+[7] Rodrigues, U. R. (2023). "DAOs and the Securities Laws." University of Georgia School of Law Research Paper.
 
-[8] Srinivasan, B. (2022). *The Network State: How To Start a New Country*. 1729.
-
-[9] Walden, J. (2020). "Progressive Decentralization: A Playbook for Building Crypto Applications." a16z Crypto Blog.
-
-[10] Delaware Code, Title 6, Chapter 18 - Delaware Limited Liability Company Act, Subchapter XII - Series.
+[8] Werbach, K. & Cornell, N. (2017). "Contracts Ex Machina." Duke Law Journal, 67, 313-382.

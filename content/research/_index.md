@@ -2,7 +2,7 @@
 title: Research Overview
 weight: 1
 linkTitle: Research Overview
-description:
+description: Deep research on autonomous businesses, emergent organizations, and agentic business models
 type: docs
 tags:
   - Research
@@ -17,41 +17,33 @@ prev:
 next: 01-introduction
 author:
 ---
-## Overview of Business Emergence and Autonomous Organizations
+## Autonomous & Emergent Businesses
 
+A deep research exploration into autonomous businesses, emergent organizations, and agentic business models — examining the technical, legal, ethical, and economic dimensions of entities that operate with minimal human intervention.
 
-<!-- text here -->
-## Overview
+## Chapters
 
 {{< cards >}}
-  {{< card title="Introduction" icon="document" href="01-introduction" >}}Research abstract and overview{{< /card >}}
-  {{< card title="Foundations" icon="edit" href="02-foundations" >}}Core concepts and architecture{{< /card >}}
-  {{< card title="Challenges" icon="shield" href="03-challenges" >}}Key challenges and considerations{{< /card >}}
+  {{< card title="Introduction" icon="document" href="01-introduction" >}}Definitions, research thesis, and the emergence spectrum{{< /card >}}
+  {{< card title="Foundations" icon="edit" href="02-foundations" >}}Agent architectures, multi-agent systems, organization models, and protocols{{< /card >}}
+  {{< card title="Legal Landscape" icon="shield" href="03-legal" >}}Legal personhood, DAO structures, EU AI Act, liability, and compliance{{< /card >}}
+  {{< card title="Ethical Dimensions" icon="eye" href="04-ethical" >}}Accountability, alignment, labor displacement, transparency, and frameworks{{< /card >}}
+  {{< card title="Technical Challenges" icon="cog" href="05-technical-challenges" >}}Governance, security, reliability, identity, and self-improvement{{< /card >}}
+  {{< card title="Case Studies" icon="search" href="06-case-studies" >}}Real-world examples, DAOs, autonomous finance, failures, and network states{{< /card >}}
+  {{< card title="Benefits & Risks" icon="chart-bar" href="07-benefits-risks" >}}The promise and peril of autonomous business systems{{< /card >}}
+  {{< card title="Creative Approaches" icon="lightning-bolt" href="08-creative-approaches" >}}Hybrid governance, the SPAWN scenario, regulatory innovation{{< /card >}}
+  {{< card title="Conclusions" icon="check-circle" href="09-conclusions" >}}Key findings, open questions, and reflections{{< /card >}}
+  {{< card title="Forensic Studies" icon="document-search" href="10-forensic-studies" >}}Deep-dive forensic case studies with provenance metadata{{< /card >}}
 {{< /cards >}}
-
 
 ## Abstract
 
-Autonomous businesses, often enabled by AI agents, are entities that operate with minimal human intervention, producing ideas, executing tasks, and optimizing themselves for profitability. This concept extends beyond simple automation to include adaptive, agentic AI systems that can learn, plan, and act independently across business functions. These AI agents can scale operations, tackle complex challenges, and respond to market changes in real time, potentially transforming traditional business governance, collaboration, and compliance frameworks.
+Autonomous businesses, enabled by AI agents operating with minimal human intervention, represent a fundamental shift in how economic value is created, governed, and distributed. This research examines the full stack of challenges and opportunities — from the technical architectures that make agent autonomy possible, through the legal frameworks that currently prevent true autonomous entities from existing, to the ethical questions we must answer before unleashing self-perpetuating economic agents into the world.
 
-Emergent organizations, including decentralized autonomous organizations (DAOs), exemplify governance models that leverage blockchain and multi-agent AI to create transparent, inclusive, and self-organizing systems. They integrate aspects of traditional structures with decentralized, agentic decision-making, reshaping innovation, finance, cultural production, and social movements.
+We introduce the **Theater-Illusion-Emergence spectrum** as a framework for evaluating claims of business autonomy, distinguishing marketing hype from genuine autonomous capability. Through case studies including the SPAWN (Self-Perpetuating Autonomous Wealth Network) scenario, forensic analysis of projects like Moltbook, and examination of DAOs, DeFAI protocols, and network states, we map the current state of the field and chart plausible paths forward.
 
-Key foundational challenges for building autonomous profitable businesses include governance adaptation, compliance and legal accountability, trust and transparency in AI decisions (the "black box" problem), ethical implications, security vulnerabilities, and operational reliability. Autonomous systems require cross-functional orchestration, AI-fluent risk management, and integration with dynamic data streams to achieve long-term ROI and scale.
+Our central thesis: **true autonomous businesses are not yet possible, but the building blocks are assembling faster than regulation can adapt.** The gap between technical capability and legal infrastructure is widening, creating both unprecedented opportunity and systemic risk. The question is not whether autonomous businesses will emerge, but whether we will have the governance frameworks in place when they do.
 
-```
-## Creative Perspectives for Research Approach
+## References
 
-- Look at cross-disciplinary impacts: combining AI tech with governance, legal frameworks, and ethics to study holistic emergence
-    
-- Analyze parallels between emergent AI businesses and natural/emergent systems (biology, ecology) to draw foundational principles
-    
-- Explore real-time orchestration challenges and solutions using AI multi-agent simulations or prototypes
-    
-- Investigate hybrid models where human and agent decision-making co-exist for accountability and trust building
-    
-- Consider socio-economic effects of autonomous businesses on employment, regulation, and market dynamics
-    
-- Evaluate emergent organizations not just from a tech perspective but through lenses of organizational theory and behavioral science
-    
-- Forecast future trends by synthesizing insights from blockchain-based DAOs and enterprise AI orchestration platforms
-```
+A comprehensive categorized bibliography of 200+ sources is available in the [References](/research/references/) section.
