@@ -28,12 +28,12 @@ A deep research exploration into autonomous businesses, emergent organizations, 
   {{< card title="Foundations" icon="edit" href="02-foundations" >}}Agent architectures, multi-agent systems, organization models, and protocols{{< /card >}}
   {{< card title="Legal Landscape" icon="shield" href="03-legal" >}}Legal personhood, DAO structures, EU AI Act, liability, and compliance{{< /card >}}
   {{< card title="Ethical Dimensions" icon="eye" href="04-ethical" >}}Accountability, alignment, labor displacement, transparency, and frameworks{{< /card >}}
-  {{< card title="Technical Challenges" icon="cog" href="05-technical-challenges" >}}Governance, security, reliability, identity, and self-improvement{{< /card >}}
+  {{< card title="Technical Challenges" icon="settings" href="05-technical-challenges" >}}Governance, security, reliability, identity, and self-improvement{{< /card >}}
   {{< card title="Case Studies" icon="search" href="06-case-studies" >}}Real-world examples, DAOs, autonomous finance, failures, and network states{{< /card >}}
   {{< card title="Benefits & Risks" icon="chart-bar" href="07-benefits-risks" >}}The promise and peril of autonomous business systems{{< /card >}}
-  {{< card title="Creative Approaches" icon="lightning-bolt" href="08-creative-approaches" >}}Hybrid governance, the SPAWN scenario, regulatory innovation{{< /card >}}
+  {{< card title="Creative Approaches" icon="bolt-outline" href="08-creative-approaches" >}}Hybrid governance, the SPAWN scenario, regulatory innovation{{< /card >}}
   {{< card title="Conclusions" icon="check-circle" href="09-conclusions" >}}Key findings, open questions, and reflections{{< /card >}}
-  {{< card title="Forensic Studies" icon="document-search" href="10-forensic-studies" >}}Deep-dive forensic case studies with provenance metadata{{< /card >}}
+  {{< card title="Forensic Studies" icon="document-search-outline" href="10-forensic-studies" >}}Deep-dive forensic case studies with provenance metadata{{< /card >}}
 {{< /cards >}}
 
 ## Abstract
