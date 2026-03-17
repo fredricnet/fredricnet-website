@@ -11,5 +11,6 @@ description: "A research exploration into AI-driven organizations that govern, o
     secondary-button-text="Read Articles"
     secondary-button-link="/articles/"
     show-background="true"
+    js-app="triangle-gol"
     published="true"
 >}}
